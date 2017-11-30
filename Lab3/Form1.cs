@@ -107,5 +107,10 @@ namespace Lab3
         {
             FillTable();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Увеличить все элементы таблица на ±1 — знак выбранного элемента.");
+        }
     }
 }
