@@ -65,7 +65,7 @@ namespace FractionalCalculator
 
         public static Fraction operator /(Fraction f1, Fraction f2)
         {
-            return new Fraction(f1.Numerator * f2.Denumerator, f1.Denumerator * f2.Denumerator);
+            return new Fraction(f1.Numerator * f2.Denumerator, f1.Denumerator * f2.Numerator);
         }
 
         public static bool operator >(Fraction f1, Fraction f2)
@@ -147,7 +147,7 @@ namespace FractionalCalculator
         public override string ToString()
         {
             if (numerator == denumerator)
-                return $"{numerator}";
+                return $"{1}";
             else if (numerator == 0)
                 return $"{0}";
             else if (denumerator == 1)
@@ -156,7 +156,7 @@ namespace FractionalCalculator
             return $"{numerator}/{denumerator}";
         }
 
-        public static Fraction Simplify(Fraction fraction)
+        public static Fraction operator !(Fraction fraction)// упрощение дроби
         {
             int a = 1; int b;
             b = Math.Abs(fraction.numerator);

@@ -11,7 +11,7 @@ namespace FractionalCalculator
             ConsoleKeyInfo key = new ConsoleKeyInfo();
             do
             {
-                WriteLine(" 1 - Calc \n Esc - Exit\n");
+                WriteLine(" 1 - Calc \n 2 - Exit\n");
                 key = ReadKey();
 
                if(key.Key == ConsoleKey.D1)
@@ -21,7 +21,7 @@ namespace FractionalCalculator
 
                     do
                     {
-                        WriteLine($"\n\n\n{Simplify(f1)} @ {Simplify(f2)} ");
+                        WriteLine($"\n\n\n{!(f1)} @ {!(f2)} ");
 
                         WriteLine("Choose operation @:" +
                             "\n1. +\n2. -\n3. *" +
@@ -33,28 +33,28 @@ namespace FractionalCalculator
                             case ConsoleKey.Escape:
                                 break;
                             case ConsoleKey.D1:
-                                WriteLine($"\n{Simplify(f1)} + {Simplify(f2)} = {Simplify(f1+f2)}");
+                                WriteLine($"\n{!(f1)} + {!(f2)} = {!(f1+f2)}");
                                 break;
                             case ConsoleKey.D2:
-                                WriteLine($"\n{Simplify(f1)} - {Simplify(f2)} = {Simplify(f1 - f2)}");
+                                WriteLine($"\n{!(f1)} - {!(f2)} = {!(f1 - f2)}");
                                 break;
                             case ConsoleKey.D3:
-                                WriteLine($"\n{Simplify(f1)} * {Simplify(f2)} = {Simplify(f1 * f2)}");
+                                WriteLine($"\n{!(f1)} * {!(f2)} = {!(f1 * f2)}");
                                 break;
                             case ConsoleKey.D4:
-                                WriteLine($"\n{Simplify(f1)} / {Simplify(f2)} = {Simplify(f1 / f2)}");
+                                WriteLine($"\n{!(f1)} / {!(f2)} = {!(f1 / f2)}");
                                 break;
                             case ConsoleKey.D5:
                                 Compare(f1,f2);
                                 break;
-                            case ConsoleKey.Multiply:
-                                goto case ConsoleKey.D3;
                             case ConsoleKey.Add:
                                 goto case ConsoleKey.D1;
-                            case ConsoleKey.Divide:
-                                goto case ConsoleKey.D4;
                             case ConsoleKey.Subtract:
                                 goto case ConsoleKey.D2;
+                            case ConsoleKey.Multiply:
+                                goto case ConsoleKey.D3;
+                            case ConsoleKey.Divide:
+                                goto case ConsoleKey.D4;
                             default:
                                 break;
                         }
@@ -62,7 +62,7 @@ namespace FractionalCalculator
                     } while (key.Key != ConsoleKey.Escape);
                 }
 
-            } while (key.Key!=ConsoleKey.Escape);
+            } while (key.Key!=ConsoleKey.D2);
         }
         private static Fraction Input()
         {
@@ -73,7 +73,7 @@ namespace FractionalCalculator
             int.TryParse(ReadLine(), out int d);
 
             var f = new Fraction(n,d);
-            WriteLine($"{Simplify(f)}");
+            WriteLine($"{!(f)}");
             return f;
         }
     }
