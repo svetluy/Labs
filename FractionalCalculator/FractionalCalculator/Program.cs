@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.Console;
+using static FractionalCalculator.Fraction;
 
 namespace FractionalCalculator
 {
@@ -10,7 +8,73 @@ namespace FractionalCalculator
     {
         static void Main(string[] args)
         {
+            ConsoleKeyInfo key = new ConsoleKeyInfo();
+            do
+            {
+                WriteLine(" 1 - Calc \n Esc - Exit\n");
+                key = ReadKey();
 
+               if(key.Key == ConsoleKey.D1)
+                {
+                    Fraction f1 = Input();
+                    Fraction f2 = Input();
+
+                    do
+                    {
+                        WriteLine($"\n\n\n{Simplify(f1)} @ {Simplify(f2)} ");
+
+                        WriteLine("Choose operation @:" +
+                            "\n1. +\n2. -\n3. *" +
+                            "\n4. /\n5. Compare\nEsc. Exit\n");
+                        key =  ReadKey();
+                        switch (key.Key)
+                        {
+
+                            case ConsoleKey.Escape:
+                                break;
+                            case ConsoleKey.D1:
+                                WriteLine($"\n{Simplify(f1)} + {Simplify(f2)} = {Simplify(f1+f2)}");
+                                break;
+                            case ConsoleKey.D2:
+                                WriteLine($"\n{Simplify(f1)} - {Simplify(f2)} = {Simplify(f1 - f2)}");
+                                break;
+                            case ConsoleKey.D3:
+                                WriteLine($"\n{Simplify(f1)} * {Simplify(f2)} = {Simplify(f1 * f2)}");
+                                break;
+                            case ConsoleKey.D4:
+                                WriteLine($"\n{Simplify(f1)} / {Simplify(f2)} = {Simplify(f1 / f2)}");
+                                break;
+                            case ConsoleKey.D5:
+                                Compare(f1,f2);
+                                break;
+                            case ConsoleKey.Multiply:
+                                goto case ConsoleKey.D3;
+                            case ConsoleKey.Add:
+                                goto case ConsoleKey.D1;
+                            case ConsoleKey.Divide:
+                                goto case ConsoleKey.D4;
+                            case ConsoleKey.Subtract:
+                                goto case ConsoleKey.D2;
+                            default:
+                                break;
+                        }
+
+                    } while (key.Key != ConsoleKey.Escape);
+                }
+
+            } while (key.Key!=ConsoleKey.Escape);
+        }
+        private static Fraction Input()
+        {
+            WriteLine("\nInput numerator.");
+            int.TryParse(ReadLine(), out int n);
+
+            WriteLine("Input denumerator.");
+            int.TryParse(ReadLine(), out int d);
+
+            var f = new Fraction(n,d);
+            WriteLine($"{Simplify(f)}");
+            return f;
         }
     }
 }

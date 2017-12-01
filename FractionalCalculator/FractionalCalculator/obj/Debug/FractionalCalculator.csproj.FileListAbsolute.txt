@@ -1,0 +1,7 @@
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\bin\Debug\FractionalCalculator.exe.config
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\bin\Debug\FractionalCalculator.exe
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\bin\Debug\FractionalCalculator.pdb
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\obj\Debug\FractionalCalculator.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\obj\Debug\FractionalCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\obj\Debug\FractionalCalculator.exe
+C:\Users\Admin\Documents\Labs\FractionalCalculator\FractionalCalculator\obj\Debug\FractionalCalculator.pdb
